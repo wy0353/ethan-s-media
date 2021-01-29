@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  Home
+{% endblock page_title %}
+
+{% block content %}
+<div class="my-8 px-5">
+  <div class="flex items-center justify-between px-5">
+	  <h2 class="text-3xl cursor-default">Movies</h2> 
+    <a class="ml-3 text-lg font-bold text-blue-300 hover:text-blue-500" href="{% url 'movies:create' %}">Create Movie</a>
+  </div>
+
+  <div class="mt-5">
+    <div class="grid grid-cols-4 gap-4">
+      {% for movie in movies %}
+        {% include "mixins/movie.html" with movie=movie %}
+      {% endfor %}
+    </div>
+
+    <div class="flex justify-center py-5 mt-5">
+      <a class="text-blue-400 text-2xl hover:text-blue-600" href="{% url 'movies:movies' %}">See all movies &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="w-full h-1 mx-10 border-b border-gray-400"></div>
+
+<div class="my-8 px-5">
+  <div class="flex items-center justify-between px-5">
+	  <h2 class="text-3xl cursor-default">Books</h2> 
+    <a class="ml-3 text-lg font-bold text-blue-300 hover:text-blue-500" href="{% url 'books:create' %}">Create Book</a>
+  </div>
+
+  <div class="mt-5">
+    <div class="grid grid-cols-4 gap-4">
+      {% for book in books %}
+        {% include "mixins/book.html" with book=book %}
+      {% endfor %}
+    </div>
+
+    <div class="flex justify-center py-5 mt-5">
+      <a class="text-blue-400 text-2xl hover:text-blue-600" href="{% url 'books:books' %}">See all books &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="w-full h-1 mx-10 border-b border-gray-400"></div>
+
+
+
+<div class="my-8 px-5">
+  <div class="flex items-center justify-between px-5">
+	  <h2 class="text-3xl cursor-default">People</h2> 
+    <a class="ml-3 text-lg font-bold text-blue-300 hover:text-blue-500" href="{% url 'people:create' %}">Create Person</a>
+  </div>
+
+  <div class="mt-5">
+    <div class="grid grid-cols-4 gap-4">
+      {% for person in people %}
+        {% include "mixins/person.html" with person=person %}
+      {% endfor %}
+    </div>
+
+    <div class="flex justify-center py-5 mt-5">
+      <a class="text-blue-400 text-2xl hover:text-blue-600" href="{% url 'people:people' %}">See all people &rarr;</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}
